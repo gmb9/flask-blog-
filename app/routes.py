@@ -23,7 +23,7 @@ def all():
     #TODO: figure out how to find all files 
     #in the app
     view_data = {}
-    view_data["pages"] = os.listdir(r"C:\Users\gmbec\OneDrive\Desktop\flask-blog-git\app\templates")
+    view_data["pages"] = os.listdir(r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates")
 
 
     #view_data["pages"] = ([ #parens allows for multi
@@ -38,8 +38,6 @@ def all():
 def login():
 
     if request.method == 'POST':
-        
-        #TODO: process request.values as necessary
         username = request.form['user_name']
         password = request.form['password']
 
@@ -51,6 +49,14 @@ def login():
             return render_markdown('index.md')
     else:
         return render_template('login.html')
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+    if request.method == 'POST':
+        if (len(session['user_name']) > 0) and (session['password'] == app.config['ADMIN_PASSWORD']):
+            return render_template('login.html')
+    else:
+        return render_template('edit.html')
 
 @app.route("/favicon.ico")
 def favicon():
@@ -72,7 +78,7 @@ def click_tracker():
 #input parameter name must match route parameter
 def render_page(view_name):
     html = render_markdown(view_name + '.md')
-    view_data = {} #create empty dictionary
+    #view_data = {} #create empty dictionary
     return render_template_string(html)
 
 @app.route("/<view_name>.html")
@@ -80,5 +86,5 @@ def render_page(view_name):
 def render_page_html(view_name):
     html = (view_name + '.html')
     view_data = {} #create empty dictionary
-    #view_data["click_count"] = 0
+    view_data["click_count"] = 0
     return render_template(html, data = view_data)
