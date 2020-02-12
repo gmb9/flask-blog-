@@ -1,0 +1,9 @@
+For this assignment, I was able to successfully add each function to the site with very few limitations. My biggest hurdle was by far the edit page, as figuring out how to read and write from different files in python was a challenge for me. Currently, the edit page only works with .html files, and is unable to open and edit .md files. This is something I'd like to fix, but am currently not really sure how to go about that.
+
+The only other error I've found so far is with my all page, and occurs when you attempt to load the all page from the all page, resulting in a blank white screen. I'm not sure why this is happening either, and again am not really sure how to fix it moving forward.
+
+As I noted in my buddy reports, my group varied greatly in skill ranging from very inexperienced to very experienced, and I think it was a good dynamic as it allowed for the less experienced member of our group to ask a lot of questions and get some really good help with his project. I think overall the idea of groups is really good when done in this way, and I appreciate that we are still able to do our own projects rather than work on one as a group.
+
+That being said, this milestone was definitely a big challenge as it incorporated a lot of different aspects of Python that we had to look into to understand. While that was obviously the goal of the milestone, I found it difficult at times to know exactly what I was supposed to do, and pairing that with figuring out Python syntax made this first milestone very challenging for me.
+
+I am also working hard with this course to keep an accurate issue tracker + project board, as I felt that I didn't make great use of those features in past classes such as in 211.

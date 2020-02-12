@@ -1,0 +1,5 @@
+We met on Tuesday February 4th for the first time as an initial checkup to see how everybody was doing early on into the project. Peter had done a lot of work and helped me to get my login and all page working from the point I had gotten on my own. Noah was a little bit stuck, and was mostly working to wrap his head around how to actually get his project working.
+
+We also worked on fixing up our github pages, making sure that we all had it setup correctly and ready to turn in when the time came.
+
+Peter was definitely the most 'fluent' when it came to the project, and it seemed like he really knew what he was doing. Noah was a little bit behind and was focused mostly on just trying to figure out how to get started using lab machines/rented laptops. I learned the most with the help of Peter, as he could easily explain what he was doing.
