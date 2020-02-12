@@ -14,15 +14,15 @@ import flask
 
 #home page
 @app.route("/")
-@app.route("/index")
+@app.route('/index')
 def home():
     return render_markdown('index.md')
 
 @app.route('/all')
 def all():
     view_data = {}
-    view_data["pages"] = os.listdir(r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates")
-    return render_template("all.html", data = view_data)
+    view_data['pages'] = os.listdir(r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates")
+    return render_template('all.html', data = view_data)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,26 +43,26 @@ def login():
 @app.route('/edit/<view_name>', methods=['GET', 'POST'])
 def edit(view_name):
     if request.method == 'POST':
-        view_data = {}
-        new_content = request.form['content']
-        file_name = r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates\\" + view_name + '.html'
-        view_data["page_name"] = view_name
-        new_file = open(file_name, 'w')
-        new_file.write(new_content)
-        new_file.close()
-        view_data['content'] = new_content
-        return render_template('edit.html', data = view_data)
-
+        if session['password'] == app.config['ADMIN_PASSWORD']:
+            view_data = {}
+            new_content = request.form['content'].strip()
+            file_name = r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates\\" + view_name + '.html'
+            view_data['page_name'] = view_name
+            new_file = open(file_name, 'w')
+            new_file.write(new_content)
+            new_file.close()
+            view_data['content'] = new_content
+            return render_template('edit.html', data = view_data)
+        else:
+            return render_template('login.html')
     else:
         view_data = {}
         file_name = r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates\\" + view_name + '.html'
-        view_data["page_name"] = view_name
+        view_data['page_name'] = view_name
         file = open(file_name, 'r')
         view_data['content'] = file.read()
         file.close()
         return render_template('edit.html', data = view_data)
-    #if (len(session['user_name']) > 0) and (session['password'] == app.config['ADMIN_PASSWORD']):
-    #   return ""
 
 @app.route("/favicon.ico")
 def favicon():
