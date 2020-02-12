@@ -52,11 +52,8 @@ def login():
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
-    if request.method == 'POST':
-        if (len(session['user_name']) > 0) and (session['password'] == app.config['ADMIN_PASSWORD']):
-            return render_template('login.html')
-    else:
-        return render_template('edit.html')
+    if (len(session['user_name']) > 0) and (session['password'] == app.config['ADMIN_PASSWORD']):
+        return ""
 
 @app.route("/favicon.ico")
 def favicon():
