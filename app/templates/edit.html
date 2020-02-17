@@ -13,9 +13,7 @@
     <form method="POST" action="/edit/{{data['page_name']}}">
         <input type="text" value="{{data['page_name']}}" name="page_name" />
         <br><br>
-        <textarea id="edit_page" name="content" rows="30" cols="100">
-        {{data["content"]}}
-        </textarea>
+        <textarea id="edit_page" name="content" rows="30" cols="100">{{data["content"]}}</textarea>
         <br><br>
         {% if data["page_name"] == "" %}
         <button type="submit">Create</button>

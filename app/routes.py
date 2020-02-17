@@ -45,7 +45,7 @@ def edit(view_name):
     if request.method == 'POST':
         if session['password'] == app.config['ADMIN_PASSWORD']:
             view_data = {}
-            new_content = request.form['content'].strip()
+            new_content = (request.form['content'].replace('\n', '')).strip()
             file_name = r"C:\Users\gmbec\OneDrive\Desktop\flaskblogcurrent\flask-blog-\app\templates\\" + view_name + '.html'
             view_data['page_name'] = view_name
             new_file = open(file_name, 'w')
